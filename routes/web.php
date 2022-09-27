@@ -12,6 +12,7 @@ Route::get('/dashboard', function () {
 
 Route::controller('App\Http\Controllers\PostController')->group(function () {
     Route::get('/post/{id}', 'show')->name('post.show');
+    Route::get('/posts/new', 'create')->name('posts.create');
     Route::get('/posts', 'index');
 });
 
