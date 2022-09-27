@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
     public function index(Post $posts)
     {
-        $posts = Post::all()->sortByDesc('created_at');
+        $posts = Post::latest()->paginate(10);
 
         return view('posts.index', [
             'posts' => $posts,
@@ -39,6 +39,6 @@ class PostController extends Controller
 
         Post::create($postData);
 
-        return redirect('/');
+        return redirect('/')->with('message', 'Your post has been added!');
     }
 }
