@@ -5,14 +5,19 @@
         </h2>
     </x-slot>
 
-    all
-    @foreach ($posts as $post )
-        <p>
-            {{ $post->caption }}
-        </p>
+    @if ($posts)
+        @foreach ($posts as $post )
+            <p>
+                {{ $post->caption }}
+            </p>
 
-        <a href="{{ route('post.show', $post->id) }}">
-            <img src="{{ $post->image }}" alt="">
-        </a>
-    @endforeach
+            <a href="{{ route('post.show', $post->id) }}">
+                <img src="{{ $post->image }}" alt="{{ $post->caption }}">
+            </a>
+        @endforeach
+    @endif
+
+    <div class="p-8">
+        {{ $posts->links() }}
+    </div>
 </x-app-layout>

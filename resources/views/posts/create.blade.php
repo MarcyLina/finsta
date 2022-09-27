@@ -41,8 +41,6 @@
             </div>
 
             <button class="p-2 border border-black">Submit</button>
-
-
         </form>
     </div>
 </x-app-layout>
