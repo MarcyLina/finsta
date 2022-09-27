@@ -9,5 +9,5 @@
         {{ $post->caption }}
     </p>
 
-    <img src="{{ $post->image }}" alt="">
+    <img src="{{ asset( $post->image) }}" alt="">
 </x-app-layout>

@@ -12,7 +12,7 @@
             </p>
 
             <a href="{{ route('post.show', $post->id) }}">
-                <img src="{{ $post->image }}" alt="{{ $post->caption }}">
+                <img src="{{ asset( $post->image) }}" alt="{{ $post->caption }}" class="object-cover h-96 w-96">
             </a>
         @endforeach
     @endif
