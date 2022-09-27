@@ -14,11 +14,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+Route::controller('PostController')->group(function () {
+    Route::get('/p/{id}', 'show');
+    Route::get('/posts', 'index');
+});
 
 require __DIR__.'/auth.php';
