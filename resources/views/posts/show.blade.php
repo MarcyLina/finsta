@@ -5,5 +5,11 @@
         </h2>
     </x-slot>
 
-    {{ $header }}
+    <p>
+        {{ $post->caption }}
+    </p>
+
+    <img src="{{ $post->image_url }}" alt="">
+
+
 </x-app-layout>

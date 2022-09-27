@@ -5,5 +5,14 @@
         </h2>
     </x-slot>
 
-    {{ $header }}
+    all
+    @foreach ($posts as $post )
+        <p>
+            {{ $post->caption }}
+        </p>
+
+        <a href="{{ route('post.show', $post->id) }}">
+            <img src="{{ $post->image_url }}" alt="">
+        </a>
+    @endforeach
 </x-app-layout>

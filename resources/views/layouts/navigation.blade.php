@@ -7,7 +7,7 @@
                 <!-- Logo -->
                 <div class="flex items-center shrink-0">
                     <a href="{{ route('dashboard') }}">
-                        <x-application-logo class="block w-auto h-10 text-gray-600 fill-current" />
+                        {{-- <x-application-logo class="block w-auto h-10 text-gray-600 fill-current" /> --}}
                     </a>
                 </div>
 
@@ -52,6 +52,9 @@
             </div>
             @else
             <a href="{{ route('login') }}" class="hidden sm:flex ">Log In</a>
+            <a class="text-sm text-gray-600 underline hover:text-gray-900" href="{{ route('register') }}">
+                {{ __('Need to register?') }}
+            </a>
             @endif
 
             <!-- Hamburger -->
@@ -97,6 +100,9 @@
         </div>
         @else
         <a href="{{ route('login') }}">Log In</a>
+        <a class="text-sm text-gray-600 underline hover:text-gray-900" href="{{ route('register') }}">
+            {{ __('Need to register?') }}
+        </a>
         @endif
     </div>
 
