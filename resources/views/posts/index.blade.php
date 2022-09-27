@@ -12,7 +12,7 @@
         </p>
 
         <a href="{{ route('post.show', $post->id) }}">
-            <img src="{{ $post->image_url }}" alt="">
+            <img src="{{ $post->image }}" alt="">
         </a>
     @endforeach
 </x-app-layout>

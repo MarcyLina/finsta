@@ -30,8 +30,15 @@ class PostController extends Controller
         return view('posts.create');
     }
 
-    public function store(Request $request)
+    public function store()
     {
-        return 'stored!!!!';
+        $postData = request()->validate([
+            'caption' => 'required',
+            'image' => 'required'
+        ]);
+
+        Post::create($postData);
+
+        return redirect('/');
     }
 }
