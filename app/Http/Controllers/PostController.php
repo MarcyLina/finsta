@@ -27,7 +27,28 @@ class PostController extends Controller
 
     public function create()
     {
-        return view('posts.create');
+        return view('post.create');
+    }
+
+    public function edit(Post $post)
+    {
+        return view('posts.edit',[
+            'post' => $post,
+        ]);
+    }
+
+    public function update(Request $request, Post $post)
+    {
+        $postData = request()->validate([
+            'caption' => 'required',
+            'image' => 'required'
+        ]);
+
+        $postData['image'] = $request->file('image')->store('images', 'public');
+
+        $post->update($postData);
+
+        return back()->with('message', 'Your post has been updated!');
     }
 
     public function store(Request $request)

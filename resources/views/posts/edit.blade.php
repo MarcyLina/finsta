@@ -1,23 +1,25 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="text-xl font-semibold leading-tight text-gray-800">
-            {{ __('create') }}
+            {{ __('edit post') }}
         </h2>
     </x-slot>
 
     <div class="max-w-2xl p-8 mx-auto">
-        <form method="POST" action="{{ route('post.store') }}" enctype="multipart/form-data">
+        <form method="POST" action="/update/{{ $post->id }}" enctype="multipart/form-data">
             @csrf
 
+            @method('PUT')
+
             <div>
-                <x-input-label for="caption" :value="__('Caption')" />
+                <x-input-label for="caption" :value="__('Edit Caption')" />
 
                 <x-text-input
                     id="caption"
                     name="caption"
                     class="block w-full mt-1"
                     type="text" name="caption"
-                    :value="old('caption')"
+                    :value="$post->caption"
                     autofocus
                 />
 
@@ -29,9 +31,9 @@
             </div>
 
             <div class="my-8">
-                <x-input-label for="caption" :value="__('Add Image')" />
+                <x-input-label for="caption" :value="__('Change Image')" />
 
-                <input type="file"  name="image" id="image" />
+                <input type="file"  name="image" id="image" :value="$post->image" />
 
                 @error('image')
                     <div class="font-bold text-red-600">
@@ -40,7 +42,15 @@
                 @enderror
             </div>
 
-            <button class="p-2 border border-black" type="submit">Submit</button>
+            <img class="w-48 mb-6 mr-6" src="{{ asset($post->image) }}" alt="" />
+
+                @error('image')
+                <p class="mt-1 text-red-500">
+                    {{ $message }}
+                </p>
+                @enderror
+
+            <button type="submit" class="p-2 border border-black">Update</button>
         </form>
     </div>
 </x-app-layout>
