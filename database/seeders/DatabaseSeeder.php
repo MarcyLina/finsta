@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Post;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -9,14 +11,7 @@ class DatabaseSeeder extends Seeder
 
     public function run()
     {
-        \App\Models\Post::factory(257)->create();
-
-        \App\Models\User::factory(35)->create();
-
-        \App\Models\User::factory()->create([
-            'name' => 'Marcy',
-            'email' => 'marcy@marcy.com',
-            'password' => 'password',
-        ]);
+        User::factory(15)->create();
+        Post::factory(95)->create();
     }
 }

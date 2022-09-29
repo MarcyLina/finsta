@@ -11,6 +11,16 @@
                 {{ $post->caption }}
             </p>
 
+            {{ $post->id }}
+
+            {{-- <p class="font-bold">
+                {{ $post->user->name }}
+            </p> --}}
+
+            <p>
+                {{ $post->created_at }}
+            </p>
+
             <a href="{{ route('post.show', $post->id) }}">
                 <img src="{{ asset( $post->image) }}" alt="{{ $post->caption }}" class="object-cover h-96 w-96">
             </a>

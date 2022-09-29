@@ -13,7 +13,7 @@ class Post extends Model
         'caption',
         'image',
     ];
-    public function post()
+    public function user()
     {
         return $this->belongsTo(User::class);
     }
