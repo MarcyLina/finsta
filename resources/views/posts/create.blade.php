@@ -1,10 +1,4 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="text-xl font-semibold leading-tight text-gray-800">
-            {{ __('create') }}
-        </h2>
-    </x-slot>
-
     <div class="max-w-2xl p-8 mx-auto">
         <form method="POST" action="{{ route('post.store') }}" enctype="multipart/form-data">
             @csrf

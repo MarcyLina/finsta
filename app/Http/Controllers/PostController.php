@@ -64,7 +64,7 @@ class PostController extends Controller
 
         $post->update($postData);
 
-        return back()->with('message', 'Your post has been updated!');
+        return redirect(route('post.show', $post->id))->with('message', 'Your post has been updated!');
     }
 
     public function destroy(Post $post)
