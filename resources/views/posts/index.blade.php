@@ -8,17 +8,19 @@
     @if ($posts)
         @foreach ($posts as $post )
             <p>
-                {{ $post->caption }}
+                caption: {{ $post->caption }}
             </p>
 
-            {{ $post->id }}
+            <p>
+                post id: {{ $post->id }}
+            </p>
 
-            {{-- <p class="font-bold">
-                {{ $post->user->name }}
-            </p> --}}
+            <p class="font-bold">
+                user name {{ $post->user->name }}
+            </p>
 
             <p>
-                {{ $post->created_at }}
+                date posted: {{ $post->created_at }}
             </p>
 
             <a href="{{ route('post.show', $post->id) }}">
