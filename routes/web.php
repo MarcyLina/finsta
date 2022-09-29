@@ -8,6 +8,7 @@ Route::controller('App\Http\Controllers\PostController')->group(function () {
     Route::post('/post-store', 'store')->name('post.store');
     Route::get('/p/{post}/edit', 'edit')->name('post.edit');
     Route::put('/update/{post}', 'update')->name('post.update');
+    Route::delete('/delete/{post}', 'destroy')->name('post.destroy');
     Route::get('/p/{id}', 'show')->name('post.show');
 });
 

@@ -36,7 +36,7 @@
             x-data="{visible: true}"
             x-show="visible"
             x-init="setTimeout(() => visible = false, 3000)"
-            class="fixed top-0 left-0 w-full h-12 py-8 text-xl font-bold text-center text-green-800 bg-white"
+            class="fixed top-0 h-12 max-w-2xl py-8 text-xl font-bold text-center text-green-800 bg-green-100 left-1/2"
         >
             {{ session('message') }}
         </h1>

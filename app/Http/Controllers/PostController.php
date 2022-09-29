@@ -16,39 +16,9 @@ class PostController extends Controller
         ]);
     }
 
-    public function show($id)
-    {
-        $post = Post::find($id);
-
-        return view('posts.show', [
-            'post' => $post,
-        ]);
-    }
-
     public function create()
     {
-        return view('post.create');
-    }
-
-    public function edit(Post $post)
-    {
-        return view('posts.edit',[
-            'post' => $post,
-        ]);
-    }
-
-    public function update(Request $request, Post $post)
-    {
-        $postData = request()->validate([
-            'caption' => 'required',
-            'image' => 'required'
-        ]);
-
-        $postData['image'] = $request->file('image')->store('images', 'public');
-
-        $post->update($postData);
-
-        return back()->with('message', 'Your post has been updated!');
+        return view('posts.create');
     }
 
     public function store(Request $request)
@@ -63,5 +33,44 @@ class PostController extends Controller
         Post::create($postData);
 
         return redirect('/')->with('message', 'Your post has been added!');
+    }
+
+    public function show($id)
+    {
+        $post = Post::find($id);
+
+        return view('posts.show', [
+            'post' => $post,
+        ]);
+    }
+
+    public function edit(Post $post)
+    {
+        return view('posts.edit',[
+            'post' => $post,
+        ]);
+    }
+
+    public function update(Request $request, Post $post)
+    {
+        $postData = request()->validate([
+            'caption' => 'nullable',
+            'image' => 'nullable',
+        ]);
+
+        if ($request->hasFile('image')) {
+            $postData['image'] = $request->file('image')->store('images', 'public');
+        }
+
+        $post->update($postData);
+
+        return back()->with('message', 'Your post has been updated!');
+    }
+
+    public function destroy(Post $post)
+    {
+        $post->delete();
+
+        return redirect('/')->with('message', 'Your post has been deleted');
     }
 }
