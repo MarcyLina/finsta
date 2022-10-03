@@ -13,7 +13,7 @@
                     @click="open = true"
                     class="flex items-baseline border-none rounded-full"
                 >
-                    <img src="https://www.humanesociety.org/sites/default/files/styles/2000x850/public/2020-07/kitten-510651.jpg?h=f54c7448&itok=lJefJMMQ" alt="" class="object-cover w-16 h-16 bg-blue-300 rounded-full">
+                    <img src="https://www.humanesociety.org/sites/default/files/styles/2000x850/public/2020-07/kitten-510651.jpg?h=f54c7448&itok=lJefJMMQ" alt="user avatar" class="object-cover w-16 h-16 bg-blue-300 rounded-full">
 
                     <svg
                         :class="open ? 'rotate-180' : ''"
@@ -31,7 +31,7 @@
                     @click.outside="open = false"
                     class="absolute w-48 p-4 mt-2 bg-white border"
                 >
-                    <p class="mb-6 font-bold">
+                    <p class="mb-6 font-bold capitalize">
                         Hi {{ Auth::user()->name }}!
                     </p>
 

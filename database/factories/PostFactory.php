@@ -10,7 +10,7 @@ class PostFactory extends Factory
     public function definition()
     {
         return [
-            'caption' => fake()->sentence(),
+            'caption' => fake()->sentence(15),
             'image' => fake()->imageUrl(),
             'user_id' => User::factory(),
         ];
