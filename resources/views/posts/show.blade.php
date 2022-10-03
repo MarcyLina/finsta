@@ -2,14 +2,19 @@
     <x-post :post="$post" />
 
     @if ($post->user_id === auth()->id())
-        <a href="/p/{{ $post->id }}/edit" class="px-16 py-8 bg-white border border-black">edit?</a>
+        <div class="flex justify-center">
+            <a href="/p/{{ $post->id }}/edit" class="mr-8 hover:underline">
+                Edit this post
+            </a>
 
-        <form action="/delete/{{ $post->id }}" method="post">
-            @csrf
+            <form action="/delete/{{ $post->id }}" method="post">
+                @csrf
+                @method('delete')
 
-            @method('delete')
-
-            <button type="submit" class="px-16 py-8 mt-12 bg-white border border-red-500">delete?</button>
-        </form>
+                <button type="submit" class="font-bold text-red-800 hover:underline">
+                    Delete this post
+                </button>
+            </form>
+        </div>
     @endif
 </x-app-layout>
