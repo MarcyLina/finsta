@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-post :post="$post" />
 
-    @if (auth()->user())
+    @if ($post->user_id === auth()->id())
         <a href="/p/{{ $post->id }}/edit" class="px-16 py-8 bg-white border border-black">edit?</a>
 
         <form action="/delete/{{ $post->id }}" method="post">

@@ -7,6 +7,10 @@
 
     <img src="{{ asset( $post->image) }}" alt="{{ $post->caption }}" class="object-cover h-[450px] my-3 w-[450px]">
 
+    <div class="todo-delete-me">
+        {{ $post->user_id }}
+    </div>
+
     <p>
         <span class="font-bold">
             {{ $post->user->username }}
@@ -17,6 +21,6 @@
     </p>
 
     <p class="mt-3 text-xs font-bold">
-        {{ date('d-m-Y', strtotime($post->created_at)) }}
+        {{ date('M d, Y', strtotime($post->created_at)) }}
     </p>
 </a>
