@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 
+Route::get('/profile/{user}', 'App\Http\Controllers\ProfileController@show')
+    ->middleware('auth')
+    ->name('profile.show');
+
 Route::controller('App\Http\Controllers\PostController')->group(function () {
     Route::get('/', 'index')->name('posts.index');
     Route::get('/p/new', 'create')
