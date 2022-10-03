@@ -30,9 +30,11 @@ class PostController extends Controller
 
         $postData['image'] = $request->file('image')->store('images', 'public');
 
+        $postData['user_id'] = auth()->id();
+
         Post::create($postData);
 
-        return redirect('/')->with('message', 'Your post has been added!');
+        return redirect('/')->with('message', 'Your post has been created!');
     }
 
     public function show($id)
@@ -71,6 +73,6 @@ class PostController extends Controller
     {
         $post->delete();
 
-        return redirect('/')->with('message', 'Your post has been deleted');
+        return redirect('/')->with('message', 'Your post has been deleted!');
     }
 }
