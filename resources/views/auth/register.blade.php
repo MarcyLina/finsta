@@ -1,9 +1,9 @@
 <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 text-gray-500 fill-current" />
-            </a>
+            <div class="flex justify-center">
+                <x-application-logo />
+            </div>
         </x-slot>
 
         <!-- Validation Errors -->
