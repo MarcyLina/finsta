@@ -1,6 +1,5 @@
 <x-app-layout>
 <div class="max-w-2xl p-8 mx-auto">
-    {{-- <a href="{{ route('post.show', $post->id) }}">Back to the post</a> --}}
     <form method="POST" action="/update/{{ $post->id }}" enctype="multipart/form-data">
         @csrf
 

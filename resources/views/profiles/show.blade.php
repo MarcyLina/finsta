@@ -15,10 +15,18 @@
 
             <p class="text-lg font-bold">{{ $profile->title ?? '' }}</p> <br>
 
-            <p class="">{{ $profile->bio ?? '' }}</p> <br>
+            <p class="max-w-2xl">{{ $profile->bio ?? '' }}</p> <br>
 
-            <p>{{ $profile->url ?? '' }}</p>
+            <a href="{{ $profile->url ?? '' }}" class="hover:underline">{{ $profile->url ?? '' }}</a>
         </div>
+
+        {{-- @if ($profile->user_id === auth()->id()) --}}
+            <div class="flex justify-center">
+                <a href="/{{ $profile->id }}/edit" class="mr-8 hover:underline">
+                    Edit profile
+                </a>
+            </div>
+        {{-- @endif --}}
     </header>
 
     <div class="grid grid-cols-3 max-w-[1400px] mx-auto">
@@ -27,5 +35,4 @@
         @endforeach
     </div>
 
-    {{-- @dd($user->profile) --}}
 </x-app-layout>

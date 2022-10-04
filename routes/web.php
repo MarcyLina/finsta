@@ -2,8 +2,18 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/profile/{user}', 'App\Http\Controllers\ProfileController@show')
-    ->name('profile.show');
+Route::controller('App\Http\Controllers\ProfileController')->group(function () {
+    Route::get('/{profile}/edit', 'edit')
+        ->middleware('auth')
+        ->name('profile.edit');
+    Route::put('/update/{profile}', 'update')
+        ->middleware('auth')
+        ->name('profile.update');
+    Route::delete('/delete/{profile}', 'destroy')
+        ->middleware('auth')
+        ->name('profile.destroy');
+    Route::get('/profile/{user}', 'show')->name('profile.show');
+});
 
 Route::controller('App\Http\Controllers\PostController')->group(function () {
     Route::get('/', 'index')->name('posts.index');
