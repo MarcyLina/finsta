@@ -9,9 +9,11 @@ use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
-    public function create()
+    public function create(Profile $profile)
     {
-        return view('profiles.create');
+        return view('profiles.create', [
+            'profile' => $profile,
+        ]);
     }
 
     public function store(Request $request)
@@ -46,29 +48,29 @@ class ProfileController extends Controller
         ]);
     }
 
-    // public function edit(Profile $profile)
-    // {
-    //     return view('profiles.edit',[
-    //         'profile' => $profile,
-    //     ]);
-    // }
+    public function edit(Profile $profile)
+    {
+        return view('profiles.edit',[
+            'profile' => $profile,
+        ]);
+    }
 
-    // public function update(Request $request, Profile $profile, User $user)
-    // {
-    //     $profileData = request()->validate([
-    //         'title' => 'nullable',
-    //         'bio' => 'nullable',
-    //         'url' => 'nullable',
-    //     ]);
+    public function update(Request $request, Profile $profile, User $user)
+    {
+        $profileData = request()->validate([
+            'title' => 'nullable',
+            'bio' => 'nullable',
+            'url' => 'nullable',
+        ]);
 
-    //     if ($request->hasFile('image')) {
-    //         $profileData['image'] = $request->file('image')->store('images', 'public');
-    //     }
+        if ($request->hasFile('image')) {
+            $profileData['image'] = $request->file('image')->store('images', 'public');
+        }
 
-    //     $profile->update($profileData);
+        $profile->update($profileData);
 
-    //     return redirect(route('profile.show', $user->id))->with('message', 'Your profile has been updated!');
-    // }
+        return redirect(route('profile.show', $user->id))->with('message', 'Your profile has been updated!');
+    }
 
     // public function destroy(User $user)
     // {

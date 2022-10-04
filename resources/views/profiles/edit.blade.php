@@ -1,4 +1,6 @@
-{{-- <x-app-layout>
+<x-app-layout>
+    <h1 class="my-8 text-2xl text-center">Edit your profile</h1>
+
     <div class="max-w-2xl p-8 mx-auto">
         <form
             method="POST"
@@ -46,4 +48,4 @@
             <button type="submit" class="p-2 border border-black">Update</button>
         </form>
     </div>
-    </x-app-layout> --}}
+    </x-app-layout>

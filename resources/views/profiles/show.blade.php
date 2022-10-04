@@ -27,12 +27,12 @@
                 {{ $user->profile->url ?? '' }}
             </a>
 
-            @if (! $user->profile->title === null && $user->id === auth()->id())
+            @if (! $profile && $user->id === auth()->id())
                 <a href="{{ route('profile.create', $user->id) }}" class="p-2 mr-8 text-center border border-black hover:underline">
                     Create profile
                 </a>
             @elseif ($user->id === auth()->id())
-                <a href="#" class="p-2 mr-8 text-center border border-black hover:underline">
+                <a href="{{ route('profile.edit', $user->id) }}" class="p-2 mr-8 text-center border border-black hover:underline">
                     Edit profile
                 </a>
             @endif

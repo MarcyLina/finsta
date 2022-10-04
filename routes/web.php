@@ -13,13 +13,13 @@ Route::controller('App\Http\Controllers\ProfileController')->group(function () {
         ->middleware('auth')
         ->name('profile.store');
 
-    // Route::get('/profile/{user}/edit', 'edit')
-    //     ->middleware('auth')
-    //     ->name('profile.edit');
+    Route::get('/pf/{profile}/edit', 'edit')
+        ->middleware('auth')
+        ->name('profile.edit');
 
-    // Route::put('/update/{profile}', 'update')
-    //     ->middleware('auth')
-    //     ->name('profile.update');
+    Route::put('/update/{profile}', 'update')
+        ->middleware('auth')
+        ->name('profile.update');
 
     // Route::delete('/delete/{profile}', 'destroy')
     //     ->middleware('auth')
