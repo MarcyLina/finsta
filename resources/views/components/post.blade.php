@@ -8,7 +8,7 @@
         <img src="https://www.humanesociety.org/sites/default/files/styles/2000x850/public/2020-07/kitten-510651.jpg?h=f54c7448&itok=lJefJMMQ" alt="" class="object-cover w-12 h-12 bg-blue-300 rounded-full">
     </div>
 
-    <a href="href="{{ route('post.show', $post->id) }}"">
+    <a href="{{ route('post.show', $post->id) }}">
         <img src="{{ asset( $post->image) }}" alt="{{ $post->caption }}" class="object-cover h-[450px] my-3 w-[450px]">
     </a>
 

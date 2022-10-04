@@ -14,7 +14,7 @@ class ProfileController extends Controller
 
         $profile = Profile::find($id);
 
-        $posts = $user->posts()->get();
+        $posts = $user->posts()->latest()->paginate(25);
 
         return view('profiles.show', [
             'user' => $user,
