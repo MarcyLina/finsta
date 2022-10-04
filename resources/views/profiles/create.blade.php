@@ -1,13 +1,8 @@
-{{-- <x-app-layout>
+<x-app-layout>
+    <h1 class="my-8 text-2xl text-center">Tell everyone a little about yourself!</h1>
     <div class="max-w-2xl p-8 mx-auto">
-        <form
-            method="POST"
-            action="/update/{{ $profile->id }}"
-            enctype="multipart/form-data"
-        >
+        <form method="POST" action="{{ route('profile.store') }}" enctype="multipart/form-data">
             @csrf
-
-            @method('PUT')
 
             <div>
                 <x-input-label for="title" :value="__('Edit Title')" />
@@ -17,7 +12,7 @@
                     name="title"
                     class="block w-full mt-1 mb-4"
                     type="text" name="title"
-                    :value="$profile->title"
+                    :value="old('title')"
                     autofocus
                 />
 
@@ -28,7 +23,7 @@
                     name="bio"
                     class="block w-full mt-1 mb-4"
                     type="text" name="bio"
-                    :value="$profile->bio"
+                    :value="old('bio')"
                 ></textarea>
 
                 <x-input-label for="url" :value="__('Edit URL')" />
@@ -38,12 +33,11 @@
                     name="url"
                     class="block w-full mt-1 mb-4"
                     type="text" name="url"
-                    :value="$profile->url"
-                    autofocus
+                    :value="old('url')"
                 />
             </div>
 
-            <button type="submit" class="p-2 border border-black">Update</button>
+            <button class="p-2 border border-black" type="submit">Submit</button>
         </form>
     </div>
-    </x-app-layout> --}}
+</x-app-layout>
