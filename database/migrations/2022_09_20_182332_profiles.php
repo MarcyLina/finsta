@@ -16,7 +16,7 @@ return new class extends Migration
                 ->unique();
             $table->string('title')->nullable();
             $table->text('bio')->nullable();
-            $table->string('link')->nullable();
+            $table->string('url')->nullable();
             $table->timestamps();
         });
     }

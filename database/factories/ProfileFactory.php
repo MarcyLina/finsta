@@ -11,7 +11,7 @@ class ProfileFactory extends Factory
     {
         return [
             'title' => fake()->sentence(5),
-            'bio' => fake()->imageUrl(18),
+            'bio' => fake()->sentence(18),
             'url' => fake()->url(),
             'user_id' => User::factory(),
         ];
