@@ -20,13 +20,13 @@
             <a href="{{ $profile->url ?? '' }}" class="hover:underline">{{ $profile->url ?? '' }}</a>
         </div>
 
-        {{-- @if ($profile->user_id === auth()->id()) --}}
+        @if ($user->id === auth()->id())
             <div class="flex justify-center">
                 <a href="/{{ $profile->id }}/edit" class="mr-8 hover:underline">
                     Edit profile
                 </a>
             </div>
-        {{-- @endif --}}
+        @endif
     </header>
 
     <div class="grid grid-cols-3 max-w-[1400px] mx-auto">
