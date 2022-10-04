@@ -1,12 +1,30 @@
 <x-app-layout>
-    <div class="py-12 text-center">
-        <h1>{{ $user->username }} welcome to my profile</h1>
+    <header class="flex justify-center py-12 max-w-1/4">
+        <div>
+            <h1 class="mb-2 text-3xl">
+                {{ $user->username }}
+                <span class="block my-2 text-base text-gray-600">
+                    {{ $user->name }}
+                </span>
+            </h1>
 
-        <p>{{ $profile->title ?? '' }}</p> <br>
+            <div class="grid grid-cols-4 mb-5 font-semibold text-gray-600">
+                <p>42 Posts</p>
+                <p>42 Followers</p>
+            </div>
 
-        <p>{{ $profile->bio ?? '' }}</p> <br>
+            <p class="text-lg font-bold">{{ $profile->title ?? '' }}</p> <br>
 
-        <p>{{ $profile->url ?? '' }}</p>
+            <p class="">{{ $profile->bio ?? '' }}</p> <br>
+
+            <p>{{ $profile->url ?? '' }}</p>
+        </div>
+    </header>
+
+    <div class="grid grid-cols-3 max-w-[1400px] mx-auto">
+        @foreach ($posts as $post )
+            <x-post :post="$post" class="m-0" />
+        @endforeach
     </div>
 
     {{-- @dd($user->profile) --}}
