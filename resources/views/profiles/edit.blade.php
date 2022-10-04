@@ -4,7 +4,7 @@
     <div class="max-w-2xl p-8 mx-auto">
         <form
             method="POST"
-            action="/update/{{ $profile->id }}"
+            action="/profile/{{ $profile->id }}"
             enctype="multipart/form-data"
         >
             @csrf
@@ -30,8 +30,7 @@
                     name="bio"
                     class="block w-full mt-1 mb-4"
                     type="text" name="bio"
-                    :value="$profile->bio"
-                ></textarea>
+                >{{ $profile->bio }}</textarea>
 
                 <x-input-label for="url" :value="__('Edit URL')" />
 

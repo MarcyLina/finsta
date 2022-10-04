@@ -55,7 +55,7 @@ class ProfileController extends Controller
         ]);
     }
 
-    public function update(Request $request, Profile $profile, User $user)
+    public function update(Request $request, Profile $profile)
     {
         $profileData = request()->validate([
             'title' => 'nullable',
@@ -63,13 +63,13 @@ class ProfileController extends Controller
             'url' => 'nullable',
         ]);
 
-        if ($request->hasFile('image')) {
-            $profileData['image'] = $request->file('image')->store('images', 'public');
-        }
+        // if ($request->hasFile('image')) {
+        //     $profileData['image'] = $request->file('image')->store('images', 'public');
+        // }
 
         $profile->update($profileData);
 
-        return redirect(route('profile.show', $user->id))->with('message', 'Your profile has been updated!');
+        return redirect(route('profile.show', $profile->id))->with('message', 'Your profile has been updated!');
     }
 
     // public function destroy(User $user)
