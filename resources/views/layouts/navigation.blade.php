@@ -37,7 +37,7 @@
 
                     <a href="{{ route('post.create') }}" class="block mb-6">Create a new post</a>
 
-                    <a href="#" class="block mb-6">View my profile</a>
+                    <a href="{{ route('profile.show', auth()->user()) }}" class="block mb-6">View my profile</a>
 
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
