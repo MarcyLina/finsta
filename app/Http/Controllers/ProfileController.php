@@ -52,6 +52,8 @@ class ProfileController extends Controller
 
     public function edit(Profile $profile)
     {
+        abort_unless($profile->user_id === auth()->id(), 403);
+
         return view('profiles.edit',[
             'profile' => $profile,
         ]);

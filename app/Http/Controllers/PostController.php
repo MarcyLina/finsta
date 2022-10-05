@@ -39,7 +39,7 @@ class PostController extends Controller
 
     public function show($id)
     {
-        $post = Post::find($id);
+        $post = Post::findOrFail($id);
 
         return view('posts.show', [
             'post' => $post,
@@ -48,6 +48,8 @@ class PostController extends Controller
 
     public function edit(Post $post)
     {
+        abort_unless($post->user_id === auth()->id(), 403);
+
         return view('posts.edit',[
             'post' => $post,
         ]);
