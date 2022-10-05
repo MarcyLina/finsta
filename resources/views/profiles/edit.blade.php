@@ -23,8 +23,6 @@
                 @enderror
             </div>
 
-            <img class="w-48 mb-6 mr-6" src="{{ asset($profile->image) }}" alt="" />
-
             <div>
                 <x-input-label for="title" :value="__('Edit Title')" />
 

@@ -5,11 +5,11 @@
             {{ $post->user->username }}
         </a>
 
-        @include('partials.avatar', [$user = $post->user, 'class' => 'h-16 w-16'])
+        @include('partials.avatar', [$user = $post->user, 'class' => 'h-12 w-12 border'])
     </div>
 
     <a href="{{ route('post.show', $post->id) }}">
-        <img src="{{ asset( $post->image) }}" alt="{{ $post->caption }}" class="object-cover h-[450px] my-3 w-[450px]">
+        <img src="{{ asset( $post->image) }}" alt="{{ $post->caption }}" class="object-contain h-[450px] my-3 w-[450px]">
     </a>
 
     <p>

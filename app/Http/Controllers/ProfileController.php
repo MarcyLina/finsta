@@ -57,7 +57,7 @@ class ProfileController extends Controller
         ]);
     }
 
-    public function update(Request $request, Profile $profile)
+    public function update(Request $request, Profile $profile, User $user)
     {
         $profileData = request()->validate([
             'image' => 'nullable',
@@ -72,7 +72,7 @@ class ProfileController extends Controller
 
         $profile->update($profileData);
 
-        return redirect(route('profile.show', $profile->id))->with('message', 'Your profile has been updated!');
+        return redirect(route('profile.show', $profile->user_id))->with('message', 'Your profile has been updated!');
     }
 
     public function destroy(User $user)
