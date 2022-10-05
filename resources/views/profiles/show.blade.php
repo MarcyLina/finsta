@@ -32,9 +32,37 @@
                     Create profile
                 </a>
             @elseif ($user->id === auth()->id())
-                <a href="{{ route('profile.edit', $user->id) }}" class="p-2 mr-8 text-center border border-black hover:underline">
-                    Edit profile
-                </a>
+                <div class="flex items-center">
+                    <a href="{{ route('profile.edit', $user->id) }}" class="p-2 mr-4 text-center border border-black hover:underline">
+                        Edit profile
+                    </a>
+
+                    <div x-data="{open: false}" class="relative">
+                        <button @click="open = true" class="p-2 text-center border border-black hover:underline">
+                            Delete my account
+                        </button>
+
+                        <div x-show="open" x-cloak x-transition class="absolute flex flex-col w-64 p-4 mt-4 bg-white border-4 border-red-700 -right-28 -top-40">
+                            <p class="p-2 mb-6 text-lg text-center bg-gray-200">
+                                Are you sure? this can't be undone.
+                            </p>
+
+                            <div class="p-2 mb-4 text-center cursor-pointer hover:underline">
+                                Nevermind, go back
+                            </div>
+
+                            <form @click.outside="open = false" action="/delete/{{ $user->id }}" method="post" class="p-2">
+                                @csrf
+
+                                @method('delete')
+
+                                <button type="submit" class="p-2 font-bold text-red-700 transition-colors border-2 border-red-700 hover:bg-red-700 hover:text-white">
+                                    Yes I'm sure, Delete my account
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             @endif
         </div>
     </header>
