@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Post;
 use App\Models\Profile;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -72,10 +71,10 @@ class ProfileController extends Controller
         return redirect(route('profile.show', $profile->id))->with('message', 'Your profile has been updated!');
     }
 
-    // public function destroy(User $user)
-    // {
-    //     $user->delete();
+    public function destroy(User $user)
+    {
+        $user->delete();
 
-    //     return redirect('/')->with('message', 'Your account has been deleted!');
-    // }
+        return redirect('/')->with('message', 'Your account has been deleted!');
+    }
 }

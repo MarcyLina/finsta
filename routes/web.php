@@ -21,9 +21,9 @@ Route::controller('App\Http\Controllers\ProfileController')->group(function () {
         ->middleware('auth')
         ->name('profile.update');
 
-    // Route::delete('/delete/{profile}', 'destroy')
-    //     ->middleware('auth')
-    //     ->name('profile.destroy');
+    Route::delete('/delete/{user}', 'destroy')
+        ->middleware('auth')
+        ->name('profile.destroy');
 });
 
 Route::controller('App\Http\Controllers\PostController')->group(function () {

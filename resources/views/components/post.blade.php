@@ -13,7 +13,7 @@
     </a>
 
     <p>
-        <a href="{{ route('profile.show', auth()->user()->id) }}" class="font-bold">
+        <a href="{{ route('profile.show', $post->user_id) }}" class="font-bold">
             {{ $post->user->username }}
         </a>
         <span class="text-gray-500">
