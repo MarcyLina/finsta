@@ -12,13 +12,18 @@
         <img src="{{ asset( $post->image) }}" alt="{{ $post->caption }}" class="object-contain h-[450px] my-3 w-[450px]">
     </a>
 
-    <p>
+    <p x-data="{expanded: false}">
         <a href="{{ route('profile.show', $post->user_id) }}" class="font-bold">
             {{ $post->user->username }}
         </a>
-        <span class="text-gray-500">
+        <span x-cloak class="block text-gray-500" :class="expanded ? 'line-clamp-0' : 'line-clamp-2'">
             {{ $post->caption }}
         </span>
+
+        @if (strlen($post->caption) > 100 )
+            <button @click="expanded = true" :class="expanded ? 'hidden' : 'font-bold'">Read More</button>
+            <button @click="expanded = false" :class="expanded ? 'font-bold' : 'hidden'">Read Less</button>
+        @endif
     </p>
 
     <p class="mt-3 text-xs font-bold">
