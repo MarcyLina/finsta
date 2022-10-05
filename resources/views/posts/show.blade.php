@@ -27,7 +27,7 @@
                         @method('delete')
 
                         <button type="submit" class="p-2 font-bold text-red-700 transition-colors hover:bg-red-700 hover:text-white">
-                            Yes I'm sure, Delete my account
+                            Yes I'm sure, Delete my post
                         </button>
                     </form>
                 </div>
