@@ -12,7 +12,7 @@
             @method('PUT')
 
             <div class="my-8">
-                <x-input-label for="caption" :value="__('Add Image')" />
+                <x-input-label for="caption" :value="__('Add Avatar')" />
 
                 <input type="file"  name="image" id="image" />
 
