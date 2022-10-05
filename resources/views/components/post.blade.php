@@ -5,7 +5,7 @@
             {{ $post->user->username }}
         </a>
 
-        <img src="https://www.humanesociety.org/sites/default/files/styles/2000x850/public/2020-07/kitten-510651.jpg?h=f54c7448&itok=lJefJMMQ" alt="" class="object-cover w-12 h-12 bg-blue-300 rounded-full">
+        @include('partials.avatar', [$user = $post->user, 'class' => 'h-16 w-16'])
     </div>
 
     <a href="{{ route('post.show', $post->id) }}">

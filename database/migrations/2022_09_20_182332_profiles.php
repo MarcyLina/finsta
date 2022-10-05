@@ -14,6 +14,7 @@ return new class extends Migration
                 ->constrained()
                 ->onDelete('cascade')
                 ->unique();
+            $table->string('image')->nullable();
             $table->string('title')->nullable();
             $table->text('bio')->nullable();
             $table->string('url')->nullable();

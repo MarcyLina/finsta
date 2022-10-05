@@ -18,12 +18,15 @@ class ProfileController extends Controller
     public function store(Request $request)
     {
         $profileData = request()->validate([
+            'image' => 'nullable',
             'title' => 'nullable',
             'bio' => 'nullable',
             'url' => 'nullable'
         ]);
 
-        // $profileData['image'] = $request->file('image')->store('images', 'public');
+        if ($request->hasFile('image')) {
+            $profileData['image'] = $request->file('image')->store('images', 'public');
+        }
 
         $profileData['user_id'] = auth()->id();
 
@@ -34,9 +37,9 @@ class ProfileController extends Controller
 
     public function show($id)
     {
-        $user = User::find($id);
+        $user = User::findOrFail($id);
 
-        $profile = Profile::find($id);
+        $profile = $user->profile;
 
         $posts = $user->posts()->latest()->paginate(25);
 
@@ -57,14 +60,15 @@ class ProfileController extends Controller
     public function update(Request $request, Profile $profile)
     {
         $profileData = request()->validate([
+            'image' => 'nullable',
             'title' => 'nullable',
             'bio' => 'nullable',
             'url' => 'nullable',
         ]);
 
-        // if ($request->hasFile('image')) {
-        //     $profileData['image'] = $request->file('image')->store('images', 'public');
-        // }
+        if ($request->hasFile('image')) {
+            $profileData['image'] = $request->file('image')->store('images', 'public');
+        }
 
         $profile->update($profileData);
 

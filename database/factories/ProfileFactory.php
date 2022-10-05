@@ -10,6 +10,7 @@ class ProfileFactory extends Factory
     public function definition()
     {
         return [
+            'image' => fake()->imageUrl(),
             'title' => fake()->sentence(5),
             'bio' => fake()->sentence(18),
             'url' => fake()->url(),

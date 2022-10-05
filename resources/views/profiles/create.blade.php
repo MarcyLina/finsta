@@ -4,8 +4,20 @@
         <form method="POST" action="{{ route('profile.store') }}" enctype="multipart/form-data">
             @csrf
 
+            <div class="my-8">
+                <x-input-label for="caption" :value="__('Add Avatar')" />
+
+                <input type="file"  name="image" id="image" />
+
+                @error('image')
+                    <div class="font-bold text-red-600">
+                        {{ $message }}
+                    </div>
+                @enderror
+            </div>
+
             <div>
-                <x-input-label for="title" :value="__('Edit Title')" />
+                <x-input-label for="title" :value="__('Add Title')" />
 
                 <x-text-input
                     id="title"
@@ -16,7 +28,7 @@
                     autofocus
                 />
 
-                <x-input-label for="bio" :value="__('Edit Bio')" />
+                <x-input-label for="bio" :value="__('Add Bio')" />
 
                 <textarea
                     id="bio"
@@ -26,7 +38,7 @@
                     :value="old('bio')"
                 ></textarea>
 
-                <x-input-label for="url" :value="__('Edit URL')" />
+                <x-input-label for="url" :value="__('Add URL')" />
 
                 <x-text-input
                     id="url"

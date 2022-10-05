@@ -11,6 +11,20 @@
 
             @method('PUT')
 
+            <div class="my-8">
+                <x-input-label for="caption" :value="__('Add Image')" />
+
+                <input type="file"  name="image" id="image" />
+
+                @error('image')
+                    <div class="font-bold text-red-600">
+                        {{ $message }}
+                    </div>
+                @enderror
+            </div>
+
+            <img class="w-48 mb-6 mr-6" src="{{ asset($profile->image) }}" alt="" />
+
             <div>
                 <x-input-label for="title" :value="__('Edit Title')" />
 

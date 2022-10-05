@@ -1,4 +1,4 @@
-<nav class="fixed top-0 left-0 w-full bg-white border-b">
+<nav class="fixed top-0 left-0 w-full px-12 bg-white border-b">
     <div class="grid grid-cols-3 items-center max-w-[1300px] mx-auto">
         <x-application-logo class="mx-0" />
 
@@ -11,9 +11,11 @@
             >
                 <button
                     @click="open = true"
-                    class="flex items-baseline border-none rounded-full"
+                    class="flex items-center border-none rounded-full"
                 >
-                    <img src="https://www.humanesociety.org/sites/default/files/styles/2000x850/public/2020-07/kitten-510651.jpg?h=f54c7448&itok=lJefJMMQ" alt="user avatar" class="object-cover w-16 h-16 bg-blue-300 rounded-full">
+                    <p class="font-bold capitalize">
+                        Hi {{ Auth::user()->name }}!
+                    </p>
 
                     <svg
                         :class="open ? 'rotate-180' : ''"
@@ -31,10 +33,6 @@
                     @click.outside="open = false"
                     class="absolute w-48 p-4 mt-2 bg-white border"
                 >
-                    <p class="mb-6 font-bold capitalize">
-                        Hi {{ Auth::user()->name }}!
-                    </p>
-
                     <a href="{{ route('post.create') }}" class="block mb-6">Create a new post</a>
 
                     <a href="{{ route('profile.show', auth()->user()) }}" class="block mb-6">View my profile</a>

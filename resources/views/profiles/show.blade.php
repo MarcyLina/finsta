@@ -1,6 +1,6 @@
 <x-app-layout>
     <header class="flex justify-center py-12 max-w-1/4">
-        <img src="https://www.humanesociety.org/sites/default/files/styles/2000x850/public/2020-07/kitten-510651.jpg?h=f54c7448&itok=lJefJMMQ" alt="user avatar" class="object-cover w-32 h-32 mr-8 bg-blue-300 rounded-full">
+        @include('partials.avatar', ['class' =>'h-36 w-36 mr-8'])
 
         <div class="flex flex-col">
             <h1 class="mb-4 text-3xl">
