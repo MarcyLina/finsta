@@ -17,17 +17,17 @@
             <a href="{{ route('profile.show', $post->user_id) }}" class="font-bold">
                 {{ $post->user->username }}
             </a>
-            <span x-cloak class="block mt-2 text-gray-500" :class="expanded ? 'line-clamp-0' : 'line-clamp-2'">
+            <span x-cloak class="block mt-2" :class="expanded ? 'line-clamp-0' : 'line-clamp-1'">
                 {{ $post->caption }}
             </span>
 
             @if (strlen($post->caption) > 100 )
-                <button class="text-sm" @click="expanded = true" :class="expanded ? 'hidden' : 'font-bold'">Read More</button>
+                <button class="text-xs text-gray-500 underline uppercase" @click="expanded = true" :class="expanded ? 'hidden' : 'font-bold'">Read More</button>
             @endif
         </p>
 
-        <p class="mt-3 text-xs font-bold">
-            {{ date('M d, Y', strtotime($post->created_at)) }}
+        <p class="mt-3 text-xs font-bold text-gray-500 uppercase">
+            {{ date('F d, Y', strtotime($post->created_at)) }}
         </p>
     </div>
 </div>
