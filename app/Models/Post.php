@@ -7,7 +7,7 @@ use App\Models\Concerns\HasLikes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
+class Post extends Model implements Likeable
 {
     use HasFactory;
     use HasLikes;

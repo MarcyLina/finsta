@@ -13,11 +13,19 @@
     </a>
 
     <div class="px-4">
+        <div class="flex items-start gap-x-2">
+            @include('posts.like', ['model' => $post])
+
+            @include('posts.comment')
+
+            @include('posts.share')
+        </div>
+
         <p x-data="{expanded: false}">
-            <a href="{{ route('profile.show', $post->user_id) }}" class="font-bold">
+            <a href="{{ route('profile.show', $post->user_id) }}" class="font-extrabold">
                 {{ $post->user->username }}
             </a>
-            <span x-cloak class="block mt-2" :class="expanded ? 'line-clamp-0' : 'line-clamp-1'">
+            <span x-cloak class="block mt-2 text-gray-600" :class="expanded ? 'line-clamp-0' : 'line-clamp-1'">
                 {{ $post->caption }}
             </span>
 
@@ -26,10 +34,8 @@
             @endif
         </p>
 
-        <p class="mt-3 text-xs font-bold text-gray-500 uppercase">
+        <p class="mt-3 text-xs font-bold uppercase">
             {{ date('F d, Y', strtotime($post->created_at)) }}
         </p>
     </div>
-
-    @include('posts.like', ['model' => $post])
 </div>

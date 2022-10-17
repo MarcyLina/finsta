@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 interface Likeable
 {
-    public function hasLikes(): MorphMany;
+    public function likes(): MorphMany;
 }

@@ -83,4 +83,5 @@ class User extends Authenticatable
             ->whereHas('user', fn($q) =>  $q->whereId($this->id))
             ->exists();
     }
+
 }
