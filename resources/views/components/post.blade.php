@@ -30,4 +30,6 @@
             {{ date('F d, Y', strtotime($post->created_at)) }}
         </p>
     </div>
+
+    @include('posts.like', ['model' => $post])
 </div>

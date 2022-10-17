@@ -52,4 +52,9 @@ Route::controller('App\Http\Controllers\PostController')->group(function () {
     Route::get('/p/{id}', 'show')->name('post.show');
 });
 
+Route::middleware('auth')->group(function () {
+    Route::post('like', 'LikeController@like')->name('like');
+    Route::delete('like', 'LikeController@unlike')->name('unlike');
+});
+
 require __DIR__.'/auth.php';
