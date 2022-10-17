@@ -15,7 +15,7 @@ class ProfileController extends Controller
         ]);
     }
 
-    public function store(Request $request)
+    public function store(Request $request, Profile $profile)
     {
         $profileData = request()->validate([
             'image' => 'nullable',
@@ -32,7 +32,7 @@ class ProfileController extends Controller
 
         Profile::create($profileData);
 
-        return redirect('/')->with('message', 'Your profile has been created!');
+        return redirect(route('profile.show', $profileData['user_id']))->with('message', 'Your profile has been created!');
     }
 
     public function show($id)
@@ -50,12 +50,14 @@ class ProfileController extends Controller
         ]);
     }
 
-    public function edit(Profile $profile)
-    {
-        abort_unless($profile->user_id === auth()->id(), 403);
+    public function edit(Profile $profile, User $user)
 
+    {   if (! $user->user_id = auth()->id()) {
+            return view('403');
+        }
         return view('profiles.edit',[
             'profile' => $profile,
+            'user' => $user,
         ]);
     }
 

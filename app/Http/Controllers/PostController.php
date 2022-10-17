@@ -48,8 +48,6 @@ class PostController extends Controller
 
     public function edit(Post $post)
     {
-        abort_unless($post->user_id === auth()->id(), 403);
-
         return view('posts.edit',[
             'post' => $post,
         ]);

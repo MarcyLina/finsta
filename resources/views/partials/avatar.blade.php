@@ -9,5 +9,5 @@
         @endif
     "
     alt="user avatar"
-    class="object-cover rounded-full {{ $class ?? '' }}"
+    class="object-cover rounded-full shadow-md border border-gray-300 {{ $class ?? '' }}"
 >
