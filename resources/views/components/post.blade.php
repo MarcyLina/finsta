@@ -1,24 +1,26 @@
 <div {{ $attributes->merge(['class' => 'block py-3 mx-auto my-6 bg-white border shadow-md w-[450px]']) }}
 >
-    <div class="flex items-center justify-between px-4 mb-2 font-bold">
-        <a href="{{ route('profile.show', $post->user_id) }}">
-            {{ $post->user->username }}
-        </a>
+    <div>
+        <div class="flex items-center justify-between px-4 mb-2 font-bold">
+            <a href="{{ route('profile.show', $post->user_id) }}">
+                {{ $post->user->username }}
+            </a>
 
-        @include('partials.avatar', [$user = $post->user, 'class' => 'h-12 w-12'])
+            @include('partials.avatar', [$user = $post->user, 'class' => 'h-12 w-12'])
+        </div>
+
+        <a href="{{ route('post.show', $post->id) }}">
+            <img src="{{ asset( $post->image) }}" alt="{{ $post->caption }}" class="object-cover h-[450px] my-3 w-[450px]">
+        </a>
     </div>
 
-    <a href="{{ route('post.show', $post->id) }}">
-        <img src="{{ asset( $post->image) }}" alt="{{ $post->caption }}" class="object-cover h-[450px] my-3 w-[450px]">
-    </a>
-
     <div class="px-4">
-        <div class="flex items-start gap-x-2">
+        <div class="flex items-start">
             @include('posts.like', ['model' => $post])
-
+{{--
             @include('posts.comment')
 
-            @include('posts.share')
+            @include('posts.share') --}}
         </div>
 
         <p x-data="{expanded: false}">
