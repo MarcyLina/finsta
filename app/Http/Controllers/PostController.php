@@ -43,16 +43,10 @@ class PostController extends Controller
     {
         $post = Post::findOrFail($id);
 
-        $comments = [
-            (object)['username' => 'kiki', 'comment' => 'meow meow'],
-            (object)['username' => 'lucy', 'comment' => 'woof woof'],
-            (object)['username' => 'robocop', 'comment' => 'snort snort'],
-            (object)['username' => 'buttMcbutt', 'comment' => 'no one asked me for my uneducated opinion but ima say it anyway because \'merica and freedom and i ain puttin\' a mask on for no one and the goverrmint puttin\' microchips in the vaccines. Sketti and guns!' ],
-        ];
-
         return view('posts.show', [
             'post' => $post,
             'comments' => $comments,
+            'user' => $user,
         ]);
     }
 

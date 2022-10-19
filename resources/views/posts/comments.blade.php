@@ -1,9 +1,9 @@
-@foreach ($comments as $comment )
-    <article class="flex my-5">
+@foreach ($post->comments as $comment )
+    <article class="flex p-3 my-8">
             @include('partials.avatar', [$user = $post->user, 'class' => 'h-7 w-7'])
 
             <a href="#" class="mx-2 font-bold">
-                {{ $comment->username }}
+                {{ $comment->user->username }}
             </a>
 
         <span class="text-gray-600">
@@ -11,3 +11,4 @@
         </span>
     </article>
 @endforeach
+
