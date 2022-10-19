@@ -43,6 +43,8 @@ class PostController extends Controller
     {
         $post = Post::findOrFail($id);
 
+        $comments = Comment::latest();
+
         return view('posts.show', [
             'post' => $post,
             'comments' => $comments,

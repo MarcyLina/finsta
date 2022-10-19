@@ -49,7 +49,7 @@
                 />
             </div>
 
-            <button class="p-2 border border-black" type="submit">Submit</button>
+            <button class="p-2 border border-black hover:bg-[#ffbc00]" type="submit">Submit</button>
         </form>
     </div>
 </x-app-layout>

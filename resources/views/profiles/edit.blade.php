@@ -56,7 +56,7 @@
                 />
             </div>
 
-            <button type="submit" class="p-2 border border-black">Update</button>
+            <button type="submit" class="p-2 border border-black hover:bg-[#ffbc00]">Update</button>
         </form>
     </div>
     </x-app-layout>

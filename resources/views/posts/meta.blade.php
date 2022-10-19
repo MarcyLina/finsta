@@ -21,20 +21,22 @@
         </div>
 
         @if (strlen($post->caption) > 39 )
-            <button class="text-xs text-gray-500 underline uppercase" @click="expanded = true" :class="expanded ? 'hidden' : 'font-bold'">
+            <button class="text-xs text-gray-700 underline uppercase" @click="expanded = true" :class="expanded ? 'hidden' : 'font-bold'">
                 Read More
             </button>
         @endif
 
         @if (! $hideButton)
-            <a class="block mt-2 text-xs text-gray-500 underline uppercase" href="{{ route('post.show', $post->id) }}">
+            <a class="block mt-2 text-xs text-gray-500 underline uppercase bg-opa" href="{{ route('post.show', $post->id) }}">
                 View all 42 comments
             </a>
         @endif
     </article>
 
     @if ($showComments)
-        @include('posts.comments', ['comments' => $comments])
+        <div class="mt-2 overflow-y-auto bg-gray-100 max-h-96">
+            @include('posts.comments', ['comments' => $comments])
+        </div>
     @endif
 
     <p class="mt-3 text-xs font-bold uppercase">

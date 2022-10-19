@@ -6,7 +6,7 @@
                 {{ $comment->user->username }}
             </a>
 
-        <span class="text-gray-600">
+        <span class="text-gray-800">
             {{ $comment->comment }}
         </span>
     </article>
