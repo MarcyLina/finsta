@@ -16,7 +16,7 @@
                 />
 
                 @error('caption')
-                    <div class="font-bold text-red-600">
+                    <div class="font-bold text-red-600 border-2 border-red-600 p-2">
                         {{ $message }}
                     </div>
                 @enderror
@@ -28,7 +28,7 @@
                 <input type="file"  name="image" id="image" />
 
                 @error('image')
-                    <div class="font-bold text-red-600">
+                    <div class="font-bold text-red-600 border-2 border-red-600 p-2">
                         {{ $message }}
                     </div>
                 @enderror

@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CommentController;
+
 use Illuminate\Support\Facades\Route;
 
 Route::controller('App\Http\Controllers\ProfileController')->group(function () {
@@ -56,5 +58,9 @@ Route::middleware('auth')->group(function () {
     Route::post('like', 'App\Http\Controllers\LikeController@like')->name('like');
     Route::delete('like', 'App\Http\Controllers\LikeController@unlike')->name('unlike');
 });
+
+Route::post('/comment-store', [CommentController::class, 'store'])
+        ->middleware('auth')
+        ->name('comment.store');
 
 require __DIR__.'/auth.php';
