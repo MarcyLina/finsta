@@ -12,7 +12,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')
                 ->constrained()
-                ->onDelete('cascade')
+                ->cascadeOnDelete()
                 ->unique();
             $table->string('image')->nullable();
             $table->string('title')->nullable();
