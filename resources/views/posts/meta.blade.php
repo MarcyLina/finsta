@@ -1,11 +1,13 @@
 <div class="px-4">
-    <div class="flex items-start">
-        @include('posts.like', ['model' => $post])
+    @auth
+        <div class="flex items-start">
+            @include('posts.like', ['model' => $post])
 
-        @include('posts.view-comments')
+            @include('posts.view-comments')
 
-        {{-- @include('posts.share') --}}
-    </div>
+            {{-- @include('posts.share') --}}
+        </div>
+    @endauth
 
     <article x-data="{expanded: false}">
         <div class="flex">
@@ -32,7 +34,7 @@
     </article>
 
     @if ($showComments)
-        @include('posts.comment')
+        @include('posts.comments', ['comments' => $comments])
     @endif
 
     <p class="mt-3 text-xs font-bold uppercase">

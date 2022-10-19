@@ -1,4 +1,4 @@
-@props(['hideButton' => false, 'showComments' => false, 'post' => $post])
+@props(['hideButton' => false, 'showComments' => false, 'post' => $post, 'comments' => null])
 
 <div {{ $attributes->merge(['class' => 'block py-3 mx-auto my-6 bg-white border shadow-md w-[450px]']) }}
 >

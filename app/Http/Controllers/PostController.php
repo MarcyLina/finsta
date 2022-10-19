@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -37,12 +39,20 @@ class PostController extends Controller
         return redirect('/')->with('message', 'Your post has been created!');
     }
 
-    public function show($id)
+    public function show($id, Comment $comments, User $user)
     {
         $post = Post::findOrFail($id);
 
+        $comments = [
+            (object)['username' => 'kiki', 'comment' => 'meow meow'],
+            (object)['username' => 'lucy', 'comment' => 'woof woof'],
+            (object)['username' => 'robocop', 'comment' => 'snort snort'],
+            (object)['username' => 'buttMcbutt', 'comment' => 'no one asked me for my uneducated opinion but ima say it anyway because \'merica and freedom and i ain puttin\' a mask on for no one and the goverrmint puttin\' microchips in the vaccines. Sketti and guns!' ],
+        ];
+
         return view('posts.show', [
             'post' => $post,
+            'comments' => $comments,
         ]);
     }
 

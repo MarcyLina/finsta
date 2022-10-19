@@ -1,5 +1,5 @@
 <x-app-layout>
-    <x-post-show :post="$post" />
+    <x-post-show :post="$post" :comments="$comments" />
 
     @if ($post->user_id === auth()->id())
         <div class="flex justify-center">
