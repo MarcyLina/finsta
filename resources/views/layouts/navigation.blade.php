@@ -31,11 +31,15 @@
                     x-transition
                     x-show="open"
                     @click.outside="open = false"
-                    class="absolute w-48 p-4 mt-2 bg-white border"
+                    class="absolute w-48 mt-2 bg-white border"
                 >
-                    <a href="{{ route('post.create') }}" class="block mb-6">Create a new post</a>
+                    <a href="{{ route('post.create') }}" class="block p-4 transition hover:bg-[#ffbc00]">
+                        Create a new post
+                    </a>
 
-                    <a href="{{ route('profile.show', auth()->user()) }}" class="block mb-6">View my profile</a>
+                    <a href="{{ route('profile.show', auth()->user()) }}" class="block p-4 transition hover:bg-[#ffbc00]">
+                        View my profile
+                    </a>
 
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
@@ -44,6 +48,7 @@
                             :href="route('logout')"
                             onclick="event.preventDefault();
                             this.closest('form').submit();"
+                            class="block p-4 transition cursor-pointer hover:bg-[#ffbc00]"
                         >
                             {{ __('Log Out') }}
                         </a>
