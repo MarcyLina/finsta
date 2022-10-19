@@ -7,7 +7,7 @@
             </a>
 
         <span class="text-gray-800">
-            {{ $comment->comment }}
+            {{ $comment->copy }}
         </span>
     </article>
 @endforeach

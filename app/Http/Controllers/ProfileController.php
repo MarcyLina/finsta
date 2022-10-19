@@ -15,7 +15,7 @@ class ProfileController extends Controller
         ]);
     }
 
-    public function store(Request $request, Profile $profile)
+    public function store(Request $request)
     {
         $profileData = request()->validate([
             'image' => 'nullable',

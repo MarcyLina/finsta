@@ -39,11 +39,11 @@ class PostController extends Controller
         return redirect('/')->with('message', 'Your post has been created!');
     }
 
-    public function show($id, Comment $comments, User $user)
+    public function show($id, Comment $comments, User $user, Post $post)
     {
         $post = Post::findOrFail($id);
 
-        $comments = Comment::latest();
+        $comments = Comment::latest()->get();
 
         return view('posts.show', [
             'post' => $post,

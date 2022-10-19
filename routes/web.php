@@ -59,7 +59,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('like', 'App\Http\Controllers\LikeController@unlike')->name('unlike');
 });
 
-Route::post('/comment-store', [CommentController::class, 'store'])
+Route::post('/p/{post}/comment-store', [CommentController::class, 'store'])
         ->middleware('auth')
         ->name('comment.store');
 

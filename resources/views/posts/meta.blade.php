@@ -35,7 +35,7 @@
 
     @if ($showComments)
         <div class="mt-2 overflow-y-auto bg-gray-100 max-h-96">
-            @include('posts.comments', ['comments' => $comments])
+            @include('posts.comments')
         </div>
     @endif
 

@@ -1,13 +1,14 @@
 <x-post :post="$post" :comments="$comments" class="grid w-1/2 grid-cols-2 pl-6" hideButton showComments />
 
-<form method="POST" action="{{ route('comment.store') }}" class="flex items-center justify-center mb-8">
+{{-- @dd($post->comments()) --}}
+<form method="POST" action="/p/{{ $post->id }}/comment-store" class="flex items-center justify-center mb-8">
     @csrf
 
     <textarea
-        id="comment"
-        name="comment"
+        id="copy"
+        name="copy"
         type="textarea"
-        name="comment"
+        name="copy"
         class="w-1/3 mr-4"
         placeholder="Add a Comment"
         autofocus
@@ -17,7 +18,7 @@
         Add Comment
     </button>
 
-    @error('comment')
+    @error('copy')
         <div class="p-2 ml-4 font-bold text-red-600 border-2 border-red-600">
             {{ $message }}
         </div>
