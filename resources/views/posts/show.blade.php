@@ -17,8 +17,8 @@
                         Are you sure? this can't be undone.
                     </p>
 
-                    <div class="p-2 mb-4 text-center cursor-pointer hover:underline">
-                        Nevermind, go back home
+                    <div class="p-2 mb-4 text-center underline cursor-pointer">
+                        Nevermind, go back
                     </div>
 
                     <form @click.outside="open = false" action="/delete/{{ $post->id }}" method="post" class="p-2 border-2 border-red-700">

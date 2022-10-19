@@ -47,7 +47,7 @@
                                 Are you sure? this can't be undone.
                             </p>
 
-                            <div class="p-2 mb-4 text-center cursor-pointer hover:underline">
+                            <div class="p-2 mb-4 font-bold text-center underline cursor-pointer">
                                 Nevermind, go back
                             </div>
 
