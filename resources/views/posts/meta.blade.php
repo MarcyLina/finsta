@@ -26,8 +26,8 @@
             </button>
         @endif
 
-        @if (! $hideButton)
-            <a class="block mt-2 text-xs text-gray-500 underline uppercase bg-opa" href="{{ route('post.show', $post->id) }}">
+        @if (! $hideButton && $post->comments->count() > 0)
+            <a class="block mt-2 text-xs text-gray-500 underline uppercase" href="{{ route('post.show', $post->id) }}">
                 View all 42 comments
             </a>
         @endif
