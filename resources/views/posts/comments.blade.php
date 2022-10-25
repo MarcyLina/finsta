@@ -9,9 +9,9 @@
 
             <span class="text-gray-800">
                 {{ $comment->copy }}
-            </span>
+            </span><br>
 
-            <button @click="open = true" class="mt-4 mb-6 underline show-form">
+            <button @click="open = true" class="my-4 underline show-form">
                 Reply to this comment
             </button>
         </div>

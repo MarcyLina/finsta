@@ -21,14 +21,14 @@
         </div>
 
         @if (strlen($post->caption) > 39 )
-            <button class="text-xs text-gray-700 underline uppercase" @click="expanded = true" :class="expanded ? 'hidden' : 'font-bold'">
+            <button class="text-xs text-gray-700 underline uppercase" @click="expanded = true" :class="expanded ? 'hidden' : ''">
                 Read More
             </button>
         @endif
 
         @if (! $hideButton && $post->comments->count() > 0)
-            <a class="block mt-2 text-xs text-gray-500 underline uppercase" href="{{ route('post.show', $post->id) }}">
-                View all 42 comments
+            <a class="block mt-3 text-xs text-gray-500 underline uppercase" href="{{ route('post.show', $post->id) }}">
+                View comments
             </a>
         @endif
     </article>
