@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
             ->count(5)
             ->hasPosts(5)
             ->hasComments(2)
+            ->hasReplies(2)
             ->hasProfile(1)
             ->create();
     }
