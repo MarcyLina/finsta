@@ -1,8 +1,8 @@
 <x-app-layout>
     <header class="flex justify-center py-12 max-w-1/4">
-        @include('partials.avatar', ['class' =>'h-36 w-36 mr-8'])
+        @include('partials.avatar', ['class' =>'h-36 w-36'])
 
-        <div class="flex flex-col">
+        <div class="flex flex-col ml-8">
             <h1 class="mb-4 text-3xl">
                 {{ $user->username }}
                 <span class="block my-2 text-base text-gray-600">
