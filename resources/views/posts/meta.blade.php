@@ -34,9 +34,9 @@
     </article>
 
     @if ($showComments)
-        <div class="mt-2 overflow-y-auto bg-gray-100 max-h-96">
+        <ul class="mt-2 overflow-y-auto bg-gray-100 max-h-96">
             @include('posts.comments')
-        </div>
+        </ul>
     @endif
 
     <p class="mt-3 text-xs font-bold uppercase">
