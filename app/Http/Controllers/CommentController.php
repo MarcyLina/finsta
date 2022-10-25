@@ -4,14 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Comment;
 use App\Models\Post;
-use Illuminate\Http\Request;
 
 class CommentController extends Controller
 {
     public function store(Post $post)
     {
         $commentData = request()->validate([
-            'copy' => 'required'
+            'copy' => 'nullable'
         ]);
 
         $commentData['post_id'] = $post->id;
@@ -22,6 +21,6 @@ class CommentController extends Controller
 
         Comment::create($commentData);
 
-        return back()->with('message', 'Your post has been added!');
+        return back()->with('message', 'Your comment has been added!');
     }
 }
