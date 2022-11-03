@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\CommentController;
-use App\Http\Controllers\ReplyController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -63,9 +62,5 @@ Route::middleware('auth')->group(function () {
 Route::post('/p/{post}/comment-store', [CommentController::class, 'store'])
         ->middleware('auth')
         ->name('comment.store');
-
-Route::post('/{post}/{comment}/reply-store', [ReplyController::class, 'store'])
-        ->middleware('auth')
-        ->name('reply.store');
 
 require __DIR__.'/auth.php';

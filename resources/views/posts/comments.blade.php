@@ -17,50 +17,32 @@
         </div>
 
         <div>
-
-
-            <form action="/{{ $post->id }}/{{ $comment->id }}/reply-store"  method="POST" x-show="open" @click.outside="open = false">
+            <form action="#"  method="POST" x-show="open" @click.outside="open = false">
                 @csrf
 
                 <div class="flex">
                     <input
-                        id="reply"
-                        name="reply"
+                        id="comment-on-comment"
+                        name="comment-on-comment"
                         type="textarea"
-                        name="reply"
+                        name="comment-on-comment"
                         class="w-1/3 p-2 mr-2 border border-black"
-                        placeholder="Add a reply"
+                        placeholder="Add a comment-on-comment"
                         autofocus
                     />
 
                     <button type="submit" class="block p-1 transition cursor-pointer border border-black hover:bg-[#ffbc00]">
-                        Submit reply
+                        Submit comment-on-comment
                     </button>
                 </div>
 
-                @error('reply')
+                @error('comment-on-comment')
                     <div class="p-2 ml-4 font-bold text-red-600 border-2 border-red-600">
                         {{ $message }}
                     </div>
                 @enderror
             </form>
         </div>
-
-        <ul class="overflow-y-auto text-sm font-bold text-gray-700 bg-white replies max-h-36">
-            @foreach ($comment->replies as $reply )
-                <li class="my-2 ml-6">
-                    @include('partials.avatar', [$user = $reply->user, 'class' => 'h-4 w-4 inline'])
-
-                    <a href="{{ route('profile.show', $comment->user_id) }}" class="mr-2 font-bold">
-                        {{ $reply->user->username }}
-                    </a>
-
-                    <span class="font-normal">
-                        {{ $reply->reply }}
-                    </span>
-                </li>
-            @endforeach
-        </ul>
     </li>
 @endforeach
 
