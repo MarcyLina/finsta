@@ -3,14 +3,14 @@
 
     @if ($post->user_id === auth()->id())
         <div class="flex justify-center">
-            <a href="/p/{{ $post->id }}/edit" class="mr-8 hover:underline">
+            <a href="{{ route('post.edit', $post->id) }}" class="mr-8 hover:underline">
                 Edit this post
             </a>
 
             <div x-data="{open: false}" class="relative">
-                <a href="#" @click="open = true" class="p-2 text-center border border-black hover:underline">
+                <button @click="open = true" class="p-2 text-center border border-black hover:underline">
                     Delete this post
-                </a>
+                </button>
 
                 <div x-show="open" x-cloak x-transition class="absolute flex flex-col w-64 p-4 mt-4 bg-white border-4 border-red-700 -right-28 -top-40">
                     <p class="p-2 mb-6 text-lg text-center bg-gray-200">
@@ -21,7 +21,7 @@
                         Nevermind, go back
                     </div>
 
-                    <form @click.outside="open = false" action="/delete/{{ $post->id }}" method="post" class="p-2 border-2 border-red-700">
+                    <form @click.outside="open = false" action="{{ route('post.destroy', $post->id) }}" method="post" class="p-2 border-2 border-red-700">
                         @csrf
 
                         @method('delete')

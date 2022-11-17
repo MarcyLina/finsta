@@ -7,11 +7,12 @@
         @if (auth()->user())
             <div
                 x-data="{open: false}"
-                class="relative justify-self-end"
+                class="relative justify-self-end flex"
             >
+                @include('partials.avatar', [$user = Auth::user(), 'class' => 'h-12 w-12'])
                 <button
                     @click="open = true"
-                    class="flex items-center border-none rounded-full"
+                    class="flex items-center border-none rounded-full ml-4"
                 >
                     <p class="font-bold capitalize">
                         Hi {{ Auth::user()->name }}!

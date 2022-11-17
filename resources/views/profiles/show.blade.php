@@ -33,7 +33,7 @@
                 </a>
             @elseif ($user->id === auth()->id())
                 <div class="flex items-center">
-                    <a href="{{ route('profile.edit', $user->id) }}" class="p-2 mr-4 text-center border border-black hover:underline">
+                    <a href="{{ route('profile.edit', $profile->id) }}" class="p-2 mr-4 text-center border border-black hover:underline">
                         Edit profile
                     </a>
 
@@ -51,7 +51,7 @@
                                 Nevermind, go back
                             </div>
 
-                            <form @click.outside="open = false" action="/delete/{{ $user->id }}" method="post" class="p-2">
+                            <form @click.outside="open = false" action="{{ route('profile.destroy', $user->id) }}" method="post" class="p-2">
                                 @csrf
 
                                 @method('delete')

@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\CommentController;
-use App\Http\Controllers\ReplyController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -24,7 +23,7 @@ Route::controller('App\Http\Controllers\ProfileController')->group(function () {
         ->middleware('auth')
         ->name('profile.update');
 
-    Route::delete('/delete/{user}', 'destroy')
+    Route::delete('/{user}/delete', 'destroy')
         ->middleware('auth')
         ->name('profile.destroy');
 });
@@ -48,7 +47,7 @@ Route::controller('App\Http\Controllers\PostController')->group(function () {
         ->middleware('auth')
         ->name('post.update');
 
-    Route::delete('/delete/{post}', 'destroy')
+    Route::delete('/p/{post}/delete', 'destroy')
         ->middleware('auth')
         ->name('post.destroy');
 
@@ -63,9 +62,5 @@ Route::middleware('auth')->group(function () {
 Route::post('/p/{post}/comment-store', [CommentController::class, 'store'])
         ->middleware('auth')
         ->name('comment.store');
-
-Route::post('/{post}/{comment}/reply-store', [ReplyController::class, 'store'])
-        ->middleware('auth')
-        ->name('reply.store');
 
 require __DIR__.'/auth.php';
