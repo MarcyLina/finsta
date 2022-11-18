@@ -2,8 +2,8 @@
     <x-post-show :post="$post" :comments="$comments" />
 
     @if ($post->user_id === auth()->id())
-        <div class="flex justify-center">
-            <a href="{{ route('post.edit', $post->id) }}" class="mr-8 hover:underline">
+        <div class="flex justify-center items-center">
+            <a href="{{ route('post.edit', $post->id) }}" class="mr-8 underline hover:text-purple-400">
                 Edit this post
             </a>
 

@@ -1,5 +1,5 @@
 @foreach ($post->comments as $comment )
-    <li class="px-4 py-2 mb-2 border-2 border-black" x-cloak x-data="{open: false}">
+    <li class="px-4 pt-2 mb-2 border-2 border-black" x-cloak x-data="{open: false}">
         <div class="mt-6 mb-2 comment">
             @include('partials.avatar', [$user = $comment->user, 'class' => 'h-7 w-7 inline'])
 
@@ -17,24 +17,23 @@
         </div>
 
         <div>
-
-
-            <form action="/{{ $post->id }}/{{ $comment->id }}/reply-store"  method="POST" x-show="open" @click.outside="open = false">
+            <form action="{{ route('reply.store', [$post->id, $comment->id] ) }}"  method="POST" x-show="open" @click.outside="open = false">
                 @csrf
 
-                <div class="flex">
+                <div class="flex mb-4">
                     <input
                         id="reply"
                         name="reply"
                         type="textarea"
                         name="reply"
-                        class="w-1/3 p-2 mr-2 border border-black"
+                        class="w-full p-2 mr-2 border border-black"
                         placeholder="Add a reply"
+                        value="{{'@' . $comment->user->username }} "
                         autofocus
                     />
 
                     <button type="submit" class="block p-1 transition cursor-pointer border border-black hover:bg-[#ffbc00]">
-                        Submit reply
+                        Submit
                     </button>
                 </div>
 
@@ -46,12 +45,12 @@
             </form>
         </div>
 
-        <ul class="overflow-y-auto text-sm font-bold text-gray-700 bg-white replies max-h-36">
+        <ul class="overflow-y-auto text-sm font-bold bg-white replies max-h-36">
             @foreach ($comment->replies as $reply )
-                <li class="my-2 ml-6">
+                <li class="mb-2.5 p-2.5 border border-gray-400">
                     @include('partials.avatar', [$user = $reply->user, 'class' => 'h-4 w-4 inline'])
 
-                    <a href="{{ route('profile.show', $comment->user_id) }}" class="mr-2 font-bold">
+                    <a href="{{ route('profile.show', $comment->user_id) }}" class="mr-1 font-bold">
                         {{ $reply->user->username }}
                     </a>
 
